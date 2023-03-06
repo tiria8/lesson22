@@ -41,9 +41,74 @@
 
 # TODO напишите Ваш код здесь
 
+from abc import ABC, abstractmethod
 
-# Отрезок кода для самопроверки.
-# Запустите его, после того как выполните задание
+class Transport(ABC):
+
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+    @abstractmethod
+    def stop_engine(self):
+        pass
+
+    @abstractmethod
+    def move(self):
+        pass
+
+    @abstractmethod
+    def stop(self):
+        pass
+
+class Boat(Transport):
+    def start_engine(self):
+        print('Двигатель катера запущен')
+
+    def stop_engine(self):
+        print('Двигатель катера заглох')
+
+    def move(self):
+        print('Двигатель катера работает')
+
+    def stop(self):
+        print('Двигатель катера остановился')
+
+class Car(Transport):
+    def start_engine(self):
+        print('Двигатель машины запущен')
+
+    def stop_engine(self):
+        print('Двигатель машины заглох')
+
+    def move(self):
+        print('Двигатель машины работает')
+
+    def stop(self):
+        print('Двигатель машины остановился')
+
+class Electroscooter(Transport):
+    def start_engine(self):
+        print('Двигатель скутера запущен')
+
+    def stop_engine(self):
+        print('Двигатель скутера заглох')
+
+    def move(self):
+        print('Двигатель скутера работает')
+
+    def stop(self):
+        print('Двигатель скутера остановился')
+
+class Person:
+
+    def use_transport(self, transport: Transport):
+        transport.start_engine()
+        transport.move()
+        transport.stop()
+        transport.stop_engine()
+
+
 if __name__ == '__main__':
     boat = Boat()
     car = Car()
